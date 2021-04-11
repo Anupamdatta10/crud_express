@@ -32,7 +32,7 @@ employeeController.save = function (req, res, next) {
             } else {
                 res.render('submit',{title:'successfully inserted!'});
             }
-            res.redirect('/employee');
+           
         });
     
    
@@ -58,5 +58,16 @@ employeeController.delete = function (req, res, next) {
     });
 
 
+}
+employeeController.updateinput =function (req,res,next){
+    res.render('employee/employeeupdate',{title:'update employee'});
+}
+employeeController.update=function(req, res, next) {
+    var newEmployee={
+        name:req.body.name,
+        phno:req.body.phno
+    }
+    id=req.body.phno
+    employeeModel.updateEmployee();
 }
 module.exports = employeeController;

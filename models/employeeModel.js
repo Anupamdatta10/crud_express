@@ -34,5 +34,15 @@ employeeModel.deleteEmployee=function(newEmployee,result){
     });
    
 }
+employeeModel.updateEmployee=function(id,newEmployee,result){
+    sql.query("UPDATE company SET  ? WHERE id="+id,newEmployee,function(err,res,field){
+        if(err){
+            return result(err,null);
+        }else{
+            return result(null,res);
+        }
+    });
+   
+}
 
 module.exports=employeeModel;
